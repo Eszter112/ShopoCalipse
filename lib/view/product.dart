@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../models/product.dart';
 import '../viewmodels/product_provider.dart';
 
@@ -31,7 +32,10 @@ class _ProductsViewState extends State<ProductsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("SHOPOCALYPSE")),
+      appBar: AppBar(
+        title: const Text("SHOPOCALYPSE"),
+        backgroundColor: Colors.deepOrangeAccent,
+      ),
 
       // Consumer ecoute le ProductProvider.
       // a chaque changement => chargement fini, liste mise à jour....
@@ -81,6 +85,7 @@ class _ProductsViewState extends State<ProductsView> {
           );
         },
       ),
+      bottomNavigationBar: const BottomNavbar(),
     );
   }
 }
