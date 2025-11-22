@@ -9,8 +9,8 @@ class Product {
   final double discountPercentage;
 
   final int stock;
-  final String image;
   final String brand;
+  final String thumbnail;
 
   const Product({
     required this.id,
@@ -20,22 +20,22 @@ class Product {
     required this.price,
     required this.discountPercentage,
     required this.stock,
-    required this.image,
     required this.brand,
+    required this.thumbnail,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'] as int,
-      title: json['title'] as String,
-      category: json['category'] as String,
-      description: json['description'] as String,
-      //num.toDouble() =>pour eviter les erreurs si l'API envoie un int
-      price: (json['price'] as num).toDouble(),
-      discountPercentage: (json['discountPercentage'] as num).toDouble(),
-      stock: json['stock'] as int,
-      image: json['image'] as String,
-      brand: json['brand'] as String,
+      id: json['id'] ?? 0,
+      title: json['title']?.toString() ?? '',
+      category: json['category']?.toString() ?? '',
+      description: json['description']?.toString() ?? '',
+      price: (json['price'] as num?)?.toDouble() ?? 0.0,
+      discountPercentage:
+          (json['discountPercentage'] as num?)?.toDouble() ?? 0.0,
+      stock: json['stock'] ?? 0,
+      brand: json['brand']?.toString() ?? '',
+      thumbnail: json['thumbnail']?.toString() ?? '',
     );
   }
 }
