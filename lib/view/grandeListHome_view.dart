@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
+import 'package:shopocalipse/view/widgets/card_with_products.dart';
 import '../viewmodels/product_provider.dart';
 import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
@@ -20,6 +21,7 @@ class _GrandeListState extends State<GrandeList> {
     // charge les produits au démarrage (une seule fois)
     Future.microtask(() {
       Provider.of<ProductProvider>(context, listen: false).loadProducts();
+    
     });
   }
 
@@ -35,7 +37,7 @@ class _GrandeListState extends State<GrandeList> {
         child: Column(
           children: [
             Container(margin: const EdgeInsets.only(top: 10)),
-            // tes cartes promo (inchangées, appels aux fonctions conservés)
+            
             SizedBox(
               height: 500,
 
@@ -44,23 +46,17 @@ class _GrandeListState extends State<GrandeList> {
 
                 children: [
                   const SizedBox(width: 12),
-                  buildCard("Ventes Flash stars"),
+                  CardWithProduct(title:"Ventes Flash stars", productId: 22),
                   const SizedBox(width: 12),
                   buildCardChildren("Offres sur les Beauty Shopocalipse"),
                   const SizedBox(width: 12),
-                  buildCard("-35% et plus"),
+                  CardWithProduct(title:"Groceries", productId: 16),
                   const SizedBox(width: 12),
-                  buildCard("Groceries"),
-                  const SizedBox(width: 12),
-                  buildCard("Les nouveautés"),
-                  const SizedBox(width: 12),
-                  buildCard("Les favoris !"),
+                  CardWithProduct(title:"Les nouveautés",productId: 10,),
                   const SizedBox(width: 12),
                   buildCardChildren("Fragances"),
                   const SizedBox(width: 12),
-                  buildCard("A vos marques, prets, économisez."),
-                  const SizedBox(width: 12),
-                  buildCard(" Favoris à moins de 50£"),
+                  CardWithProduct(title:"A vos marques, prets, économisez.", productId: 3,),
                   const SizedBox(width: 12),
                   buildCardChildren("Furnitures du Quotidien"),
                 ],
@@ -94,7 +90,7 @@ class _GrandeListState extends State<GrandeList> {
 
             const SizedBox(height: 20),
 
-            // Section Produits API simple pour débutant (utilise Provider)
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Align(
@@ -111,13 +107,13 @@ class _GrandeListState extends State<GrandeList> {
 
             Consumer<ProductProvider>(
               builder: (context, provider, _) {
+
                 if (provider.isLoading) {
                   return const SizedBox(
                     height: 120,
                     child: Center(child: CircularProgressIndicator()),
                   );
                 }
-
                 if (provider.products.isEmpty) {
                   return const SizedBox(
                     height: 120,
@@ -138,6 +134,7 @@ class _GrandeListState extends State<GrandeList> {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+
                           InkWell(
                             onTap: () {
                               Navigator.push(
@@ -180,9 +177,32 @@ class _GrandeListState extends State<GrandeList> {
               },
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height:4),
+
+            SizedBox(
+              height: 450,
+
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+
+                children: [
+                  const SizedBox(width: 12),
+                  buildCardCuatro("Fragances>"),
+                  const SizedBox(width: 12),
+                  buildCardCuatro("Groceries>"),
+                  const SizedBox(width: 12),
+                  buildCardCuatro("Beauty>"),
+                  const SizedBox(width: 12),
+                ],
+              ),
+            ),
+
+
+
           ],
         ),
+
+
       ),
 
       bottomNavigationBar: const BottomNavbar(),

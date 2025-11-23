@@ -33,4 +33,14 @@ class ProductProvider with ChangeNotifier {
     //onprevient l'UI => montrer la liste
     notifyListeners();
   }
+
+// recuperer un article par id
+Product? getById(int id) {
+  try {
+    return products.firstWhere((p) => p.id == id);
+  } catch (_) {
+    return null;
+  }
+  }
+
 }
