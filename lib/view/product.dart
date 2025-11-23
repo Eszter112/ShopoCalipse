@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../models/product.dart';
 import '../viewmodels/product_provider.dart';
+import 'description_produit.dart';
 
 //  On cree une page qui montre les produits
 class ProductsView extends StatefulWidget {
@@ -62,23 +63,27 @@ class _ProductsViewState extends State<ProductsView> {
               final product = provider.products[index];
               // on prend le produit à la position index
 
-              return ListTile(
-                leading: Image.network(product.thumbnail, width: 50),
-
-                title: Text(product.title),
-
-                subtitle: Text("${product.price} €"),
-
+              return InkWell(
                 onTap: () {
-                  //quand on clique sur la ligne, on va vers un ecran de details
-                  Navigator.pushNamed(context, '/details', arguments: product);
-                  //arguments: product permet de donner le produit l'ecran suivant
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Description(product: product),
+                    ),
+                  );
                 },
+                child: ListTile(
+                  leading: Image.network(product.thumbnail, width: 50),
 
-                trailing: IconButton(
-                  icon: const Icon(Icons.add_shopping_cart),
+                  title: Text(product.title),
 
-                  onPressed: () {},
+                  subtitle: Text("${product.price} €"),
+
+                  trailing: IconButton(
+                    icon: const Icon(Icons.add_shopping_cart),
+
+                    onPressed: () {},
+                  ),
                 ),
               );
             },
