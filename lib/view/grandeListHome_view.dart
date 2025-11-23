@@ -171,7 +171,7 @@ class _GrandeListState extends State<GrandeList> {
 
                           const SizedBox(height: 6),
                           // Text(p.title , style: TextStyle(backgroundColor: Colors.white),textAlign: TextAlign.center,),
-                          Text("${p.price.toStringAsFixed(2)} €"),
+                          Text("${p.price} €"),
                         ],
                       );
                     },
