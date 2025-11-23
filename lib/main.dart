@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
+import 'view/product.dart';
+import 'viewmodels/product_provider.dart';
 import 'view/grandeListHome_view.dart';
+
 void main() {
-  runApp(const MyApp());
+  var logger = Logger();
+  logger.e('Error message');
+
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ProductProvider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,13 +24,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-home: const GrandeList(),
+      debugShowCheckedModeBanner: false,
+      home: const GrandeList(),
+      routes: {
+        '/grandeListHome_view.dart' : (BuildContext context) => const GrandeList() ,
+        '/product.dart': (BuildContext context) => const ProductsView(),
 
-routes: {
-  
-'/grandeListHome_view.dart' : (BuildContext context) => const GrandeList() ,
-
-}
+        // '/details':(context) =>const ProductDetailsView(),
+      },
     );
   }
 }
