@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../models/product.dart';
+import 'package:add_to_cart_button/add_to_cart_button.dart';
 
 class Description extends StatelessWidget {
   final Product product;
@@ -69,6 +70,30 @@ class Description extends StatelessWidget {
                 ),
               ],
             ),
+            // Text("Ajouter au panier"),
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      "Vous avez ajoutez au panier ${product.title} ",
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Ajouter au panier'),
+            ),
+            // AddToCartCounterButton(
+            //   initNumber: 0,
+            //   minNumber: 0,
+            //   maxNumber: product.stock,
+            //   increaseCallback: () {},
+            //   decreaseCallback: () {},
+            //   counterCallback: (int count) {},
+            //   backgroundColor: Colors.orange,
+            //   buttonFillColor: Colors.orange,
+            //   buttonIconColor: Colors.white,
+            // ),
           ],
         ),
       ),

@@ -5,7 +5,6 @@ import 'package:shopocalipse/view/logo.dart';
 import 'view/product.dart';
 import 'viewmodels/product_provider.dart';
 import 'view/grandeListHome_view.dart';
-import 'view/logo.dart';
 
 void main() {
   var logger = Logger();
