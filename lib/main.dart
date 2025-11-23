@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
-import '../view/product.dart';
-import '../viewmodels/product_provider.dart';
+import 'view/product.dart';
+import 'viewmodels/product_provider.dart';
+import 'view/grandeListHome_view.dart';
 
 void main() {
   var logger = Logger();
-
   logger.e('Error message');
+
   runApp(
     MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => ProductProvider())],
@@ -24,10 +25,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'SHOPOCALYPSE',
-      initialRoute: "/",
-      routes: <String, WidgetBuilder>{
-        '/': (context) => const ProductsView(),
+      home: const GrandeList(),
+      routes: {
+        '/grandeListHome_view.dart' : (BuildContext context) => const GrandeList() ,
+        '/product.dart': (BuildContext context) => const ProductsView(),
+
         // '/details':(context) =>const ProductDetailsView(),
       },
     );
