@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../viewmodels/product_provider.dart';
 import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
+import 'description_produit.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
 
   @override
   State<GrandeList> createState() => _GrandeListState();
-
 }
 
 class _GrandeListState extends State<GrandeList> {
@@ -28,25 +29,19 @@ class _GrandeListState extends State<GrandeList> {
       appBar: AppBar(
         title: const Text("SHOPOCALIPSE"),
         backgroundColor: const Color.fromARGB(239, 155, 23, 76),
-        
       ),
 
       body: SingleChildScrollView(
-        
         child: Column(
-          
           children: [
-            Container(
-        margin: const EdgeInsets.only(top: 10), 
-      ),
+            Container(margin: const EdgeInsets.only(top: 10)),
             // tes cartes promo (inchangées, appels aux fonctions conservés)
             SizedBox(
               height: 500,
-              
+
               child: ListView(
-                
                 scrollDirection: Axis.horizontal,
-            
+
                 children: [
                   const SizedBox(width: 12),
                   buildCard("Ventes Flash stars"),
@@ -71,38 +66,44 @@ class _GrandeListState extends State<GrandeList> {
                 ],
               ),
             ),
-          
-Row(
-  // mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Expanded(child: 
-    Container(
-color: Colors.orange.shade800,
-height:50,
-margin:const EdgeInsets.only(top:20),
-padding: const EdgeInsets.all(8),
-child:
-Text("Black Friday Week aura lieu\n du 20 novembre au 1er décembre", 
-textAlign: TextAlign.center, 
 
-style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: FontWeight.bold,))
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.orange.shade800,
+                    height: 50,
+                    margin: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.all(8),
+                    child: Text(
+                      "Black Friday Week aura lieu\n du 20 novembre au 1er décembre",
+                      textAlign: TextAlign.center,
 
-    ),
-    ),
-],
-),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        height: 0.85,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
 
-
-  const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Section Produits API simple pour débutant (utilise Provider)
-          Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Des cadeaux pour tout le monde",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -134,31 +135,45 @@ style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: Font
                     itemBuilder: (context, index) {
                       final p = provider.products[index];
 
-                      return  Column( 
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                        width: 70,
-                        height: 70,
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 228, 61, 19),
-                          borderRadius: BorderRadius.circular(8),
-                          boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 4)],
-                        ),
-                    
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Description(product: p),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 70,
+                              height: 70,
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 228, 61, 19),
+                                borderRadius: BorderRadius.circular(8),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 4,
+                                  ),
+                                ],
+                              ),
+
                               child: Image.network(
                                 p.thumbnail,
                                 fit: BoxFit.cover,
                               ),
-                              ),
-                            
-                            const SizedBox(height: 6),
-                            // Text(p.title , style: TextStyle(backgroundColor: Colors.white),textAlign: TextAlign.center,),
-                            Text("${p.price.toStringAsFixed(2)} €", ),
-                          ],
-                        );
-                      
+                            ),
+                          ),
+
+                          const SizedBox(height: 6),
+                          // Text(p.title , style: TextStyle(backgroundColor: Colors.white),textAlign: TextAlign.center,),
+                          Text("${p.price.toStringAsFixed(2)} €"),
+                        ],
+                      );
                     },
                   ),
                 );
@@ -170,9 +185,7 @@ style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: Font
         ),
       ),
 
-
-
-
+      bottomNavigationBar: const BottomNavbar(),
     );
   }
 }
