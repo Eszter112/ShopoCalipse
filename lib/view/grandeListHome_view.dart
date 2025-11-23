@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../viewmodels/product_provider.dart';
 import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
@@ -134,13 +135,16 @@ style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: Font
                     itemBuilder: (context, index) {
                       final p = provider.products[index];
 
-                      return  Column( 
+                      return 
+                      Column( 
                       crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    
                     Container(
                         width: 70,
                         height: 70,
                         padding: const EdgeInsets.all(8),
+                        
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 228, 61, 19),
                           borderRadius: BorderRadius.circular(8),
@@ -155,7 +159,7 @@ style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: Font
                             
                             const SizedBox(height: 6),
                             // Text(p.title , style: TextStyle(backgroundColor: Colors.white),textAlign: TextAlign.center,),
-                            Text("${p.price.toStringAsFixed(2)} €", ),
+                            Text("${p.price} €", ),
                           ],
                         );
                       
@@ -170,7 +174,7 @@ style: TextStyle(color: Colors.white, fontSize:20, height: 0.85,fontWeight: Font
         ),
       ),
 
-
+bottomNavigationBar: const BottomNavbar(),
 
 
     );
