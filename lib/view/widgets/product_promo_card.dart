@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopocalipse/view/widgets/card_with_products.dart';
 
 // copie exacte de buildCard
 Widget buildCard(String title) => Container(
@@ -161,7 +162,11 @@ Widget buildCardCuatro(String title) => Container(
 
                   Expanded(
                     child:
+                    
                   Container(
+
+                      
+                    
                     margin:
                   const EdgeInsets.all(4), 
                   decoration: 

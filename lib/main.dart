@@ -9,6 +9,8 @@ import 'package:shopocalipse/viewmodels/cart.dart';
 import 'view/product.dart';
 import 'viewmodels/product_provider.dart';
 import 'view/grandeListHome_view.dart';
+import 'view/logo.dart';
+// import 'view/widgets/searchBar.dart';
 
 void main() {
   var logger = Logger();

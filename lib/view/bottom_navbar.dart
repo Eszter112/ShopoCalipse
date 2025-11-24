@@ -41,42 +41,14 @@ class BottomNavbar extends StatelessWidget {
       selectedItemColor: const Color.fromARGB(255, 2, 52, 53),
       unselectedItemColor: Colors.black,
       backgroundColor: Colors.deepOrangeAccent,
-      items: [
-        // BottomNavigationBarItem(
-        //   icon: IconButton(
-        //     onPressed: () => Navigator.pushNamed(context, '/profile'),
-        //     icon: Icon(Icons.person_3_outlined, color: Colors.black),
-        //     iconSize: 35,
-        //   ),
+      items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
         BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/home'),
-            icon: Icon(Icons.home, color: Colors.black),
-          ),
-          label: "",
+          icon: Icon(Icons.shopping_cart),
+          label: '',
         ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/profil'),
-            icon: Icon(Icons.person, color: Colors.black),
-            iconSize: 35,
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/cart'),
-            icon: Icon(Icons.shopping_cart, color: Colors.black),
-          ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/menu'),
-            icon: Icon(Icons.menu, color: Colors.black),
-          ),
-          label: "",
-        ),
+        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
       ],
       // ),
     );
