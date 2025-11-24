@@ -1,27 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:shopocalipse/view/grandeListHome_view.dart';
+import 'profile.dart';
+import 'cart.dart';
+import 'menu_page.dart';
 
-class BottomNavbar extends StatefulWidget {
+class BottomNavbar extends StatelessWidget {
   const BottomNavbar({super.key});
 
-  @override
-  State<BottomNavbar> createState() => _BottomNavbarState();
-}
+  //   @override
+  //   State<BottomNavbar> createState() => _BottomNavbarState();
+  // }
 
-class _BottomNavbarState extends State<BottomNavbar> {
-  int _currentIndex = 0;
-  setCurrantIndex(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+  // class _BottomNavbarState extends State<BottomNavbar> {
+  // int _selectedIndex = 0;
+
+  // int _currentIndex = 0;
+
+  // final List<Widget> pages = const [
+  //   GrandeList(), // Home
+  //   Profil(), // Profile
+  //   Cart(), // Panier
+  //   MenuPage(), // Menu
+  // ];
+
+  // void setCurrantIndex(int index) {
+  //   setState(() {
+  //     _currentIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   body: pages[_currentIndex],
+    //   bottomNavigationBar:
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
+      // currentIndex: _currentIndex,
       type: BottomNavigationBarType.fixed,
-      onTap: (index) => setCurrantIndex(index),
-
+      // onTap: setCurrantIndex,
       selectedItemColor: const Color.fromARGB(255, 2, 52, 53),
       unselectedItemColor: Colors.black,
       backgroundColor: Colors.deepOrangeAccent,
@@ -34,6 +50,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         ),
         BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
       ],
+      // ),
     );
   }
 }
