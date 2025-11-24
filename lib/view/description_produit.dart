@@ -68,8 +68,18 @@ class Description extends StatelessWidget {
                   '${product.price} €',
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 ),
+
+                Text(
+                  '${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(2)} €',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.grey,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
               ],
             ),
+            SizedBox(height: 50),
             // Text("Ajouter au panier"),
             ElevatedButton(
               onPressed: () {
