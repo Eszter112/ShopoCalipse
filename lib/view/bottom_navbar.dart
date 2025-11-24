@@ -26,13 +26,13 @@ class _BottomNavbarState extends State<BottomNavbar> {
       unselectedItemColor: Colors.black,
       backgroundColor: Colors.deepOrangeAccent,
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart),
-          label: 'Panier',
+          label: '',
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
       ],
     );
   }

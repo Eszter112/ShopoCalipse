@@ -6,6 +6,9 @@ import '../viewmodels/product_provider.dart';
 import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
 import 'description_produit.dart';
+// import 'widgets/searchBar.dart';
+import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
+import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -24,13 +27,20 @@ class _GrandeListState extends State<GrandeList> {
     
     });
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SHOPOCALIPSE"),
+    
+        // title: const Text("SHOPOCALIPSE"),
         backgroundColor: const Color.fromARGB(239, 155, 23, 76),
+      // bottom: const PreferredSize(
+      //   preferredSize: Size.fromHeight(64),
+      //   child:  SearchBarApp(), 
+      // ),
+
+    
       ),
 
       body: SingleChildScrollView(
@@ -48,17 +58,17 @@ class _GrandeListState extends State<GrandeList> {
                   const SizedBox(width: 12),
                   CardWithProduct(title:"Ventes Flash stars", productId: 22),
                   const SizedBox(width: 12),
-                  buildCardChildren("Offres sur les Beauty Shopocalipse"),
+                  buildCardOffres("Offres sur les Beauty Shopocalipse"),
                   const SizedBox(width: 12),
                   CardWithProduct(title:"Groceries", productId: 16),
                   const SizedBox(width: 12),
                   CardWithProduct(title:"Les nouveautés",productId: 10,),
                   const SizedBox(width: 12),
-                  buildCardChildren("Fragances"),
+                  buildCardFragrances("Fragances"),
                   const SizedBox(width: 12),
                   CardWithProduct(title:"A vos marques, prets, économisez.", productId: 3,),
                   const SizedBox(width: 12),
-                  buildCardChildren("Furnitures du Quotidien"),
+                  buildCardQuotidien("Furnitures du Quotidien"),
                 ],
               ),
             ),
@@ -187,11 +197,11 @@ class _GrandeListState extends State<GrandeList> {
 
                 children: [
                   const SizedBox(width: 12),
-                  buildCardCuatro("Fragances>"),
+                  cuatroImagesFragances("Fragrances"),
                   const SizedBox(width: 12),
-                  buildCardCuatro("Groceries>"),
+                  cuatroImagesGroceries("Groceries>"),
                   const SizedBox(width: 12),
-                  buildCardCuatro("Beauty>"),
+                  cuatroImagesBeauty("Beauty>"),
                   const SizedBox(width: 12),
                 ],
               ),

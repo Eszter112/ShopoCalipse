@@ -34,17 +34,17 @@ class CardWithProduct extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (_) => Description(product: product)));
                       }
                     },
-                    child: ClipRRect(
+                    child: ClipRRect( // coins arrondis a une image et masque tout ce qui dépasse
                       borderRadius: BorderRadius.circular(8),
                       child: Image.network(
                         thumb,
                         fit: BoxFit.cover,
-                        width: double.infinity,
-                        errorBuilder: (_, __, ___) => const Icon(Icons.broken_image),
+                    
                       ),
                     ),
                   ),
-          ),
+                ),
+        
         ],
       ),
     );
