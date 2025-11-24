@@ -1,39 +1,84 @@
 import 'package:flutter/material.dart';
+import 'package:shopocalipse/view/grandeListHome_view.dart';
+import 'profile.dart';
+import 'cart.dart';
+import 'menu_page.dart';
 
-class BottomNavbar extends StatefulWidget {
+class BottomNavbar extends StatelessWidget {
   const BottomNavbar({super.key});
 
-  @override
-  State<BottomNavbar> createState() => _BottomNavbarState();
-}
+  //   @override
+  //   State<BottomNavbar> createState() => _BottomNavbarState();
+  // }
 
-class _BottomNavbarState extends State<BottomNavbar> {
-  int _currentIndex = 0;
-  setCurrantIndex(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+  // class _BottomNavbarState extends State<BottomNavbar> {
+  // int _selectedIndex = 0;
+
+  // int _currentIndex = 0;
+
+  // final List<Widget> pages = const [
+  //   GrandeList(), // Home
+  //   Profil(), // Profile
+  //   Cart(), // Panier
+  //   MenuPage(), // Menu
+  // ];
+
+  // void setCurrantIndex(int index) {
+  //   setState(() {
+  //     _currentIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // return Scaffold(
+    //   body: pages[_currentIndex],
+    //   bottomNavigationBar:
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
+      // currentIndex: _currentIndex,
       type: BottomNavigationBarType.fixed,
-      onTap: (index) => setCurrantIndex(index),
-
+      // onTap: setCurrantIndex,
       selectedItemColor: const Color.fromARGB(255, 2, 52, 53),
       unselectedItemColor: Colors.black,
       backgroundColor: Colors.deepOrangeAccent,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+      items: [
+        // BottomNavigationBarItem(
+        //   icon: IconButton(
+        //     onPressed: () => Navigator.pushNamed(context, '/profile'),
+        //     icon: Icon(Icons.person_3_outlined, color: Colors.black),
+        //     iconSize: 35,
+        //   ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),
-          label: 'Panier',
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/home'),
+            icon: Icon(Icons.home, color: Colors.black),
+          ),
+          label: "",
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/profil'),
+            icon: Icon(Icons.person, color: Colors.black),
+            iconSize: 35,
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/cart'),
+            icon: Icon(Icons.shopping_cart, color: Colors.black),
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/menu'),
+            icon: Icon(Icons.menu, color: Colors.black),
+          ),
+          label: "",
+        ),
       ],
+      // ),
     );
   }
 }
