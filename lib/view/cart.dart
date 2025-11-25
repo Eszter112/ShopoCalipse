@@ -77,6 +77,14 @@ class _CartState extends State<Cart> {
                   },
                 ),
               ),
+              Text(
+                "Total article : ${cart.itemCount}",
+                style: TextStyle(fontSize: 15),
+              ),
+              Text(
+                "Total : ${cart.totalPrice.toStringAsFixed(2)} €",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
               // btn vider panier
               ElevatedButton(
                 onPressed: () => cart.clear(),

@@ -57,9 +57,10 @@ class Description extends StatelessWidget {
         //   child:  SearchBarApp(),
         // ),
       ),
-
+// ---------------------------------------------------------------------------------------------------------------
       body: Center(
-        child: Column(
+        child: 
+        Column(
           children: [
             const SizedBox(height: 10),
             Text(
@@ -137,28 +138,10 @@ class Description extends StatelessWidget {
               child: const Text('Ajouter au panier'),
             ),
             const SizedBox(height: 100),
-            // Expanded(
-            //   child: Consumer<CartCVM>(
-            //     builder: (context, cart, child) {
-            //       return ListView.builder(
-            //         itemCount: cart.items.length,
-            //         itemBuilder: (context, index) {
-            //           final item = context.watch<CartCVM>().items[index];
-            //           return ListTile(
-            //             title: Text(item.title),
-            //             subtitle: Text("${item.price} €"),
-            //             trailing: IconButton(
-            //               icon: const Icon(Icons.delete),
-            //               onPressed: () => context.read<CartCVM>().remove(item),
-            //             ),
-            //           );
-            //         },
-            //       );
-            //     },
-            //   ),
-            // ),
           ],
         ),
+
+
       ),
 
       bottomNavigationBar: const BottomNavbar(),

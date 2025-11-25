@@ -5,7 +5,7 @@ import 'package:shopocalipse/view/widgets/card_backcolor.dart';
 Widget buildCardOffres(String title) => Container(
   width: 300,
   height: 500,
-  padding: const EdgeInsets.all(8),
+  padding: const EdgeInsets.all(10),
   decoration: BoxDecoration(
     gradient: LinearGradient(
       colors: [

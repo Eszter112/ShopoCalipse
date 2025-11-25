@@ -19,6 +19,7 @@ class BottomNavbar extends StatelessWidget {
           colors: [
             const Color.fromARGB(255, 216, 176, 115),
             const Color.fromARGB(255, 68, 41, 5),
+            
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,

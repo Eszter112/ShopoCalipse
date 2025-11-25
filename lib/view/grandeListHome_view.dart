@@ -3,13 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
 import 'package:shopocalipse/view/widgets/card_with_products.dart';
 import '../viewmodels/product_provider.dart';
-// import 'widgets/product_promo_card.dart';
-// import 'package:shopocalipse/view/product.dart';
 import 'description_produit.dart';
-// import 'widgets/searchBar.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopocalipse/view/widgets/row_mini-cards.dart';
+import 'package:shopocalipse/view/widgets/cuatro_widget.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -87,7 +86,7 @@ class _GrandeListState extends State<GrandeList> {
 
                 children: [
                   const SizedBox(width: 12),
-                  CardWithProduct(title: "Ventes Flash stars", productId: 22),
+                  CardWithProduct(title: "Ventes Flash stars", productId: 22,),
                   const SizedBox(width: 12),
                   buildCardOffres("Offres sur les Beauty Shopocalipse"),
                   const SizedBox(width: 12),
@@ -107,39 +106,7 @@ class _GrandeListState extends State<GrandeList> {
               ),
             ),
 
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          const Color.fromARGB(255, 216, 176, 115),
-                          const Color.fromARGB(255, 68, 41, 5),
-                        ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                      ),
-                    ),
-                    height: 50,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      "Black Friday Week aura lieu\n du 20 novembre au 1er décembre",
-                      textAlign: TextAlign.center,
-
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        height: 0.85,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+Container(child:rowMiniCards("")),
 
             const SizedBox(height: 20),
 
@@ -161,23 +128,26 @@ class _GrandeListState extends State<GrandeList> {
               builder: (context, provider, _) {
                 if (provider.isLoading) {
                   return const SizedBox(
-                    height: 120,
+                    height: 8,
                     child: Center(child: CircularProgressIndicator()),
                   );
                 }
                 if (provider.products.isEmpty) {
                   return const SizedBox(
-                    height: 120,
+                    height: 8,
                     child: Center(child: Text("Aucun produit disponible")),
                   );
                 }
 
                 return SizedBox(
-                  height: 220,
+                  height:120,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
+
                     padding: const EdgeInsets.symmetric(horizontal: 12),
+
                     separatorBuilder: (_, __) => const SizedBox(width: 12),
+
                     itemCount: provider.products.length,
                     itemBuilder: (context, index) {
                       final p = provider.products[index];
@@ -203,6 +173,7 @@ class _GrandeListState extends State<GrandeList> {
                                   colors: [
                                     const Color.fromARGB(255, 216, 176, 115),
                                     const Color.fromARGB(255, 68, 41, 5),
+                                    
                                   ],
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -211,7 +182,7 @@ class _GrandeListState extends State<GrandeList> {
                                 boxShadow: const [
                                   BoxShadow(
                                     color: Colors.black12,
-                                    blurRadius: 4,
+                                    blurRadius: 2,
                                   ),
                                 ],
                               ),
@@ -223,7 +194,7 @@ class _GrandeListState extends State<GrandeList> {
                             ),
                           ),
 
-                          const SizedBox(height: 6),
+                          const SizedBox(height: 2),
                           // Text(p.title , style: TextStyle(backgroundColor: Colors.white),textAlign: TextAlign.center,),
                           Text("${p.price} €"),
                         ],
@@ -235,29 +206,26 @@ class _GrandeListState extends State<GrandeList> {
             ),
 
             // const SizedBox(height: 4),
-            SizedBox(
-              height: 450,
 
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+          Container(child: cuatroWidget("")),
+          
 
-                children: [
-                  const SizedBox(width: 12),
-                  cuatroImagesFragances("Fragrances"),
-                  const SizedBox(width: 12),
-                  cuatroImagesGroceries("Groceries>"),
-                  const SizedBox(width: 12),
-                  cuatroImagesBeauty("Beauty>"),
-                  const SizedBox(width: 12),
-                ],
-              ),
-            ),
-            SizedBox(height: 100),
+            Container(child:rowMiniCards(""),),
+
+            SizedBox(height: 20),
+            
+            Container(child:cuatroWidget("")),
+          
+
+          
           ],
+          
         ),
+        
       ),
 
       bottomNavigationBar: const BottomNavbar(),
+      
     );
   }
 }

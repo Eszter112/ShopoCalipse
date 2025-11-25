@@ -6,6 +6,7 @@ import '../description_produit.dart';
 class CardWithProduct extends StatelessWidget {
   final String title;
   final int? productId;
+  
 
   const CardWithProduct({super.key, required this.title, this.productId});
 
@@ -33,6 +34,7 @@ class CardWithProduct extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Text(price),
           Text(
             title,
             style: const TextStyle(
@@ -68,3 +70,5 @@ class CardWithProduct extends StatelessWidget {
     );
   }
 }
+
+
