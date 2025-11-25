@@ -3,12 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
 import 'package:shopocalipse/view/widgets/card_with_products.dart';
 import '../viewmodels/product_provider.dart';
-import 'widgets/product_promo_card.dart';
+// import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
 import 'description_produit.dart';
 // import 'widgets/searchBar.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -24,30 +25,60 @@ class _GrandeListState extends State<GrandeList> {
     // charge les produits au démarrage (une seule fois)
     Future.microtask(() {
       Provider.of<ProductProvider>(context, listen: false).loadProducts();
-    
     });
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-    
+        centerTitle: true,
         // title: const Text("SHOPOCALIPSE"),
-        backgroundColor: const Color.fromARGB(239, 155, 23, 76),
-      // bottom: const PreferredSize(
-      //   preferredSize: Size.fromHeight(64),
-      //   child:  SearchBarApp(), 
-      // ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 216, 176, 115),
+                const Color.fromARGB(255, 68, 41, 5),
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+            ),
+          ),
+        ),
 
-    
+        title: Text(
+          'SHOPOCALYPSE',
+          style: GoogleFonts.playfairDisplay(
+            fontSize: 30,
+            fontWeight: FontWeight.w400,
+            color: const Color.fromARGB(255, 239, 212, 175),
+            shadows: [
+              Shadow(
+                offset: Offset(2, 2),
+                blurRadius: 6.0,
+                color: Colors.black.withValues(alpha: 0.8),
+              ),
+              Shadow(
+                offset: Offset(0, 0),
+                blurRadius: 12.0,
+                color: Colors.amber.shade200.withValues(alpha: 0.2),
+              ),
+            ],
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.amber.shade300),
+        // bottom: const PreferredSize(
+        //   preferredSize: Size.fromHeight(64),
+        //   child:  SearchBarApp(),
+        // ),
       ),
 
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(margin: const EdgeInsets.only(top: 10)),
-            
+
             SizedBox(
               height: 500,
 
@@ -56,17 +87,20 @@ class _GrandeListState extends State<GrandeList> {
 
                 children: [
                   const SizedBox(width: 12),
-                  CardWithProduct(title:"Ventes Flash stars", productId: 22),
+                  CardWithProduct(title: "Ventes Flash stars", productId: 22),
                   const SizedBox(width: 12),
                   buildCardOffres("Offres sur les Beauty Shopocalipse"),
                   const SizedBox(width: 12),
-                  CardWithProduct(title:"Groceries", productId: 16),
+                  CardWithProduct(title: "Groceries", productId: 16),
                   const SizedBox(width: 12),
-                  CardWithProduct(title:"Les nouveautés",productId: 10,),
+                  CardWithProduct(title: "Les nouveautés", productId: 10),
                   const SizedBox(width: 12),
                   buildCardFragrances("Fragances"),
                   const SizedBox(width: 12),
-                  CardWithProduct(title:"A vos marques, prets, économisez.", productId: 3,),
+                  CardWithProduct(
+                    title: "A vos marques, prets, économisez.",
+                    productId: 3,
+                  ),
                   const SizedBox(width: 12),
                   buildCardQuotidien("Furnitures du Quotidien"),
                 ],
@@ -78,7 +112,16 @@ class _GrandeListState extends State<GrandeList> {
               children: [
                 Expanded(
                   child: Container(
-                    color: Colors.orange.shade800,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          const Color.fromARGB(255, 216, 176, 115),
+                          const Color.fromARGB(255, 68, 41, 5),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
                     height: 50,
                     margin: const EdgeInsets.only(top: 20),
                     padding: const EdgeInsets.all(8),
@@ -100,7 +143,6 @@ class _GrandeListState extends State<GrandeList> {
 
             const SizedBox(height: 20),
 
-            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Align(
@@ -117,7 +159,6 @@ class _GrandeListState extends State<GrandeList> {
 
             Consumer<ProductProvider>(
               builder: (context, provider, _) {
-
                 if (provider.isLoading) {
                   return const SizedBox(
                     height: 120,
@@ -144,7 +185,6 @@ class _GrandeListState extends State<GrandeList> {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
                           InkWell(
                             onTap: () {
                               Navigator.push(
@@ -159,7 +199,14 @@ class _GrandeListState extends State<GrandeList> {
                               height: 70,
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 228, 61, 19),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    const Color.fromARGB(255, 216, 176, 115),
+                                    const Color.fromARGB(255, 68, 41, 5),
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
                                 borderRadius: BorderRadius.circular(8),
                                 boxShadow: const [
                                   BoxShadow(
@@ -187,8 +234,7 @@ class _GrandeListState extends State<GrandeList> {
               },
             ),
 
-            const SizedBox(height:4),
-
+            // const SizedBox(height: 4),
             SizedBox(
               height: 450,
 
@@ -206,13 +252,9 @@ class _GrandeListState extends State<GrandeList> {
                 ],
               ),
             ),
-
-
-
+            SizedBox(height: 100),
           ],
         ),
-
-
       ),
 
       bottomNavigationBar: const BottomNavbar(),

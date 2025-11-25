@@ -9,7 +9,7 @@ import 'package:shopocalipse/viewmodels/cart.dart';
 import 'view/product.dart';
 import 'viewmodels/product_provider.dart';
 import 'view/grandeListHome_view.dart';
-import 'view/logo.dart';
+// import 'view/logo.dart';
 // import 'view/widgets/searchBar.dart';
 
 void main() {
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/home': (BuildContext context) => const GrandeList(),
         '/product.dart': (BuildContext context) => const ProductsView(),
         '/logo': (BuildContext context) => const FadeLogoScreen(),
-        '/profil': (BuildContext context) => const Profil(),
+        // '/profil': (BuildContext context) => const Profil(),
         '/cart': (BuildContext context) => const Cart(),
         '/menu': (BuildContext context) => const MenuPage(),
         // '/details':(context) =>const ProductDetailsView(),

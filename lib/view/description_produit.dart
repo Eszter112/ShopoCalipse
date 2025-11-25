@@ -5,6 +5,7 @@ import 'package:add_to_cart_button/add_to_cart_button.dart';
 import 'package:shopocalipse/viewmodels/cart.dart';
 import 'package:provider/provider.dart';
 import '../viewmodels/cart.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Description extends StatelessWidget {
   final Product product;
@@ -12,11 +13,49 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<CartCVM>(context);
+    final cart = Provider.of<CartCVM>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SHOPOCALYPSE"),
-        backgroundColor: Colors.deepOrangeAccent,
+        centerTitle: true,
+        // title: const Text("SHOPOCALIPSE"),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 216, 176, 115),
+                const Color.fromARGB(255, 68, 41, 5),
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+            ),
+          ),
+        ),
+
+        title: Text(
+          'SHOPOCALYPSE',
+          style: GoogleFonts.playfairDisplay(
+            fontSize: 30,
+            fontWeight: FontWeight.w400,
+            color: const Color.fromARGB(255, 239, 212, 175),
+            shadows: [
+              Shadow(
+                offset: Offset(2, 2),
+                blurRadius: 6.0,
+                color: Colors.black.withValues(alpha: 0.8),
+              ),
+              Shadow(
+                offset: Offset(0, 0),
+                blurRadius: 12.0,
+                color: Colors.amber.shade200.withValues(alpha: 0.2),
+              ),
+            ],
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.amber.shade300),
+        // bottom: const PreferredSize(
+        //   preferredSize: Size.fromHeight(64),
+        //   child:  SearchBarApp(),
+        // ),
       ),
 
       body: Center(
@@ -72,27 +111,25 @@ class Description extends StatelessWidget {
                   '${product.price} €',
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 ),
-
-                Text(
-                  '${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(2)} €',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.grey,
-                    decoration: TextDecoration.lineThrough,
-                  ),
-                ),
               ],
             ),
+            Text(
+              '${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(2)} €',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.grey,
+                decoration: TextDecoration.lineThrough,
+              ),
+            ),
             SizedBox(height: 50),
-            // Text("Ajouter au panier"),
+
             ElevatedButton(
               onPressed: () {
-                // context.read<CartCVM>().add(product);
-                Provider.of<CartCVM>(context).addProduct(product);
+                cart.addProduct(product);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      "Vous avez ajoutez au panier ${product.title} ",
+                      "Vous avez ajouté au panier ${product.title} ",
                     ),
                   ),
                 );
@@ -100,22 +137,26 @@ class Description extends StatelessWidget {
               child: const Text('Ajouter au panier'),
             ),
             const SizedBox(height: 100),
-            Expanded(
-              child: ListView.builder(
-                itemCount: cart.items.length,
-                itemBuilder: (context, index) {
-                  final item = cart.items[index];
-                  return ListTile(
-                    title: Text(item.title),
-                    subtitle: Text("${item.price} €"),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () => cart.remove(item),
-                    ),
-                  );
-                },
-              ),
-            ),
+            // Expanded(
+            //   child: Consumer<CartCVM>(
+            //     builder: (context, cart, child) {
+            //       return ListView.builder(
+            //         itemCount: cart.items.length,
+            //         itemBuilder: (context, index) {
+            //           final item = context.watch<CartCVM>().items[index];
+            //           return ListTile(
+            //             title: Text(item.title),
+            //             subtitle: Text("${item.price} €"),
+            //             trailing: IconButton(
+            //               icon: const Icon(Icons.delete),
+            //               onPressed: () => context.read<CartCVM>().remove(item),
+            //             ),
+            //           );
+            //         },
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
