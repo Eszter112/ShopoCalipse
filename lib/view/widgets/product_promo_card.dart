@@ -7,7 +7,14 @@ Widget buildCard(String title) => Container(
   height: 500,
   padding: const EdgeInsets.all(8),
   decoration: BoxDecoration(
-    color: Colors.red,
+    gradient: LinearGradient(
+      colors: [
+        const Color.fromARGB(255, 216, 176, 115),
+        const Color.fromARGB(255, 68, 41, 5),
+      ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    ),
     borderRadius: BorderRadius.circular(10),
   ),
   child: Column(
@@ -16,10 +23,10 @@ Widget buildCard(String title) => Container(
       Text(
         title,
         style: const TextStyle(
-          fontSize: 25, 
-          color: Colors.white, 
-          fontWeight: FontWeight.bold
-          ),
+          fontSize: 25,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       const SizedBox(height: 40),
     ],
@@ -32,19 +39,27 @@ Widget buildCardChildren(String title) => Container(
   height: 500,
   padding: const EdgeInsets.all(8),
   decoration: BoxDecoration(
-    color: Colors.red,
+    gradient: LinearGradient(
+      colors: [
+        const Color.fromARGB(255, 216, 176, 115),
+        const Color.fromARGB(255, 68, 41, 5),
+      ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    ),
     borderRadius: BorderRadius.circular(10),
   ),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(title, 
-      style: const TextStyle(
-        fontSize: 25, 
-        color: Colors.white, 
-        fontWeight: FontWeight.bold
+      Text(
+        title,
+        style: const TextStyle(
+          fontSize: 25,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
-        ),
+      ),
       const SizedBox(height: 40),
       Expanded(
         child: Row(
@@ -52,32 +67,25 @@ Widget buildCardChildren(String title) => Container(
             Expanded(
               child: Column(
                 children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
 
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
-
-                  Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
-                    ),
-                    ),
-                    ),
+                  ),
                 ],
               ),
             ),
@@ -86,43 +94,34 @@ Widget buildCardChildren(String title) => Container(
               child: Column(
                 children: [
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
+                  ),
 
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
+                  ),
 
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
+                  ),
                 ],
               ),
             ),
@@ -139,19 +138,27 @@ Widget buildCardCuatro(String title) => Container(
   height: 500,
   padding: const EdgeInsets.all(8),
   decoration: BoxDecoration(
-    color: Colors.red,
+    gradient: LinearGradient(
+      colors: [
+        const Color.fromARGB(255, 216, 176, 115),
+        const Color.fromARGB(255, 68, 41, 5),
+      ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    ),
     borderRadius: BorderRadius.circular(10),
   ),
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(title, 
-      style: const TextStyle(
-        fontSize: 25, 
-        color: Colors.white, 
-        fontWeight: FontWeight.bold
+      Text(
+        title,
+        style: const TextStyle(
+          fontSize: 25,
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
-        ),
+      ),
       const SizedBox(height: 40),
       Expanded(
         child: Row(
@@ -159,36 +166,25 @@ Widget buildCardCuatro(String title) => Container(
             Expanded(
               child: Column(
                 children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
 
                   Expanded(
-                    child:
-                    
-                  Container(
-
-                      
-                    
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
-
-                  Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
-                    ),
-                    ),
-                    ),
+                  ),
                 ],
               ),
             ),
@@ -197,30 +193,24 @@ Widget buildCardCuatro(String title) => Container(
               child: Column(
                 children: [
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
+                  ),
 
                   Expanded(
-                    child:
-                  Container(
-                    margin:
-                  const EdgeInsets.all(4), 
-                  decoration: 
-                  BoxDecoration(
-                    color: Colors.white, 
-                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    ),
-                    ),
+                  ),
                 ],
               ),
             ),

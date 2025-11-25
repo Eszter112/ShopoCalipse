@@ -13,56 +13,75 @@ class BottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      // currentIndex: _currentIndex,
-      type: BottomNavigationBarType.fixed,
-      // onTap: setCurrantIndex,
-      selectedItemColor: const Color.fromARGB(255, 2, 52, 53),
-      unselectedItemColor: Colors.black,
-      backgroundColor: Colors.deepOrangeAccent,
-      items: [
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/home'),
-            icon: Icon(Icons.home, color: Colors.black),
-          ),
-          label: "",
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            const Color.fromARGB(255, 216, 176, 115),
+            const Color.fromARGB(255, 68, 41, 5),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/profil'),
-            icon: Icon(Icons.person, color: Colors.black),
-            iconSize: 35,
+      ),
+
+      child: BottomNavigationBar(
+        // currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        // onTap: setCurrantIndex,
+        selectedItemColor: const Color.fromARGB(255, 0, 9, 9),
+        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.transparent,
+
+        items: [
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/home'),
+              icon: Icon(Icons.home, color: Colors.black),
+              iconSize: 35,
+            ),
+            label: "",
           ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          // Kosár ikonhoz Badge
-          icon: Consumer<CartCVM>(
-            builder: (context, cart, child) {
-              return badges.Badge(
-                badgeContent: Text(
-                  cart.itemCount.toString(),
-                  style: const TextStyle(color: Colors.white),
-                ),
-                child: IconButton(
-                  onPressed: () => Navigator.pushNamed(context, '/cart'),
-                  icon: const Icon(Icons.shopping_cart, color: Colors.black),
-                ),
-              );
-            },
+          // BottomNavigationBarItem(
+          //   icon: IconButton(
+          //     onPressed: () => Navigator.pushNamed(context, '/profil'),
+          //     icon: Icon(Icons.person, color: Colors.black),
+          //     iconSize: 35,
+          //   ),
+          //   label: "",
+          // ),
+          BottomNavigationBarItem(
+            //icon panier compteur
+            icon: Consumer<CartCVM>(
+              builder: (context, cart, child) {
+                return badges.Badge(
+                  badgeContent: Text(
+                    cart.itemCount.toString(),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      // backgroundColor: Colors.black,
+                    ),
+                  ),
+                  child: IconButton(
+                    onPressed: () => Navigator.pushNamed(context, '/cart'),
+                    icon: const Icon(Icons.shopping_cart, color: Colors.black),
+                    iconSize: 35,
+                  ),
+                );
+              },
+            ),
+            label: "",
           ),
-          label: "",
-        ),
-        BottomNavigationBarItem(
-          icon: IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/menu'),
-            icon: Icon(Icons.menu, color: Colors.black),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/menu'),
+              icon: Icon(Icons.menu, color: Colors.black),
+              iconSize: 35,
+            ),
+            label: "",
           ),
-          label: "",
-        ),
-      ],
-      // ),
+        ],
+      ),
     );
   }
 }

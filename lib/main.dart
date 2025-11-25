@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/home': (BuildContext context) => const GrandeList(),
         '/product.dart': (BuildContext context) => const ProductsView(),
         '/logo': (BuildContext context) => const FadeLogoScreen(),
-        '/profil': (BuildContext context) => const Profil(),
+        // '/profil': (BuildContext context) => const Profil(),
         '/cart': (BuildContext context) => const Cart(),
         '/menu': (BuildContext context) => const MenuPage(),
         // '/details':(context) =>const ProductDetailsView(),
