@@ -18,12 +18,16 @@ class CardWithBackColor extends StatelessWidget {
     return Container(
       width: 300,
       height: 500,
+      
       padding: const EdgeInsets.all(8),
       decoration: 
       BoxDecoration(
         color: const Color.fromARGB(255, 255, 255, 255), 
         borderRadius:  BorderRadius.circular(16),),
+
       child: Column(
+
+
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title, style: const TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold)),
@@ -38,7 +42,9 @@ class CardWithBackColor extends StatelessWidget {
                       }
                     },
                     child: ClipRRect( // coins arrondis a une image et masque tout ce qui dépasse
+                      
                       borderRadius: BorderRadius.circular(8),
+                      child: Center(
                       child: Image.network(
                         thumb,
                         fit: BoxFit.cover,
@@ -47,7 +53,7 @@ class CardWithBackColor extends StatelessWidget {
                     ),
                   ),
                 ),
-        
+        ),
         ],
       ),
     );
