@@ -5,10 +5,16 @@ import '../description_produit.dart';
 
 class CardWithProduct extends StatelessWidget {
   final String title;
+  final double? price;
   final int? productId;
   
 
-  const CardWithProduct({super.key, required this.title, this.productId});
+  const CardWithProduct({
+    super.key,
+    required this.title,
+    this.price,
+    this.productId,
+  });
 
   @override
   Widget build(BuildContext context) {

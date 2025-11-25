@@ -5,6 +5,7 @@ import 'package:shopocalipse/view/bottom_navbar.dart';
 import '../viewmodels/product_provider.dart';
 import 'description_produit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'navbar.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -25,48 +26,7 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        // title: const Text("SHOPOCALIPSE"),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                const Color.fromARGB(255, 216, 176, 115),
-                const Color.fromARGB(255, 68, 41, 5),
-              ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-            ),
-          ),
-        ),
-
-        title: Text(
-          'SHOPOCALYPSE',
-          style: GoogleFonts.playfairDisplay(
-            fontSize: 30,
-            fontWeight: FontWeight.w400,
-            color: const Color.fromARGB(255, 239, 212, 175),
-            shadows: [
-              Shadow(
-                offset: Offset(2, 2),
-                blurRadius: 6.0,
-                color: Colors.black.withValues(alpha: 0.8),
-              ),
-              Shadow(
-                offset: Offset(0, 0),
-                blurRadius: 12.0,
-                color: Colors.amber.shade200.withValues(alpha: 0.2),
-              ),
-            ],
-          ),
-        ),
-        iconTheme: IconThemeData(color: Colors.amber.shade300),
-        // bottom: const PreferredSize(
-        //   preferredSize: Size.fromHeight(64),
-        //   child:  SearchBarApp(),
-        // ),
-      ),
+      appBar: const AppBarW(),
 
       // Consumer ecoute le ProductProvider.
       // a chaque changement => chargement fini, liste mise à jour....
@@ -110,9 +70,9 @@ class _MenuPageState extends State<MenuPage> {
                   subtitle: Text("${product.price} €"),
 
                   // trailing: IconButton(
-                    // icon: const Icon(Icons.add_shopping_cart),
+                  //   icon: const Icon(Icons.add_shopping_cart),
 
-                    // onPressed: () {},
+                  //   onPressed: () {},
                   // ),
                 ),
               );
