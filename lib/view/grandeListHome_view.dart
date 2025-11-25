@@ -9,6 +9,7 @@ import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopocalipse/view/widgets/row_mini-cards.dart';
 import 'package:shopocalipse/view/widgets/cuatro_widget.dart';
+import 'widgets/dos.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -212,6 +213,8 @@ class _GrandeListState extends State<GrandeList> {
             SizedBox(height: 20),
 
             Container(child: cuatroWidget("")),
+            SizedBox(height: 20),
+            // Container(child: dos(product)),
           ],
         ),
       ),

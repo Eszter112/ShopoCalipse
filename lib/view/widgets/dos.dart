@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'card_backcolor.dart';
+import 'package:shopocalipse/models/product.dart';
 
-Widget dos(String title) => Container(
+Widget dos(Product product) => Container(
+  //  final product = provider.products.first;
   width: 350,
   height: 500,
   padding: const EdgeInsets.all(8),
@@ -20,12 +22,16 @@ Widget dos(String title) => Container(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        title,
+        product.title,
         style: const TextStyle(
           fontSize: 25,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
+      ),
+      Text(
+        "${product.price} €",
+        style: const TextStyle(fontSize: 20, color: Colors.white70),
       ),
       // Text("${product.price}"),
       // Text("${price.toStringAsFixed(2)} €"),

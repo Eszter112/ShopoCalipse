@@ -36,13 +36,18 @@ class CardWithBackColor extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title,
+            product?.title ?? title,
             style: const TextStyle(
-              fontSize: 25,
+              fontSize: 10,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
+          if (product != null)
+            Text(
+              "${product.price} €",
+              style: const TextStyle(fontSize: 18, color: Colors.white70),
+            ),
           const SizedBox(height: 12),
           Expanded(
             child: thumb == null
