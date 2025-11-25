@@ -11,6 +11,7 @@ import 'navbar.dart';
 import 'widgets/dos.dart';
 import 'widgets/card_backcolor.dart';
 import 'widgets/card_with_products.dart';
+import "widgets/row_mini-cards.dart";
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -183,11 +184,11 @@ Container(child:rowMiniCards("")),
             ),
             Container(child: dos("")),
             SizedBox(height: 50),
-          ],
+    );
           
-        ),
+      
         
-      ),
+      
 
       bottomNavigationBar: const BottomNavbar(),
       
