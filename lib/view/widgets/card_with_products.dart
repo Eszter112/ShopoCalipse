@@ -7,6 +7,7 @@ class CardWithProduct extends StatelessWidget {
   final String title;
   final double? price;
   final int? productId;
+  
 
   const CardWithProduct({
     super.key,
@@ -39,6 +40,7 @@ class CardWithProduct extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Text(price),
           Text(
             title,
             style: const TextStyle(
@@ -74,3 +76,5 @@ class CardWithProduct extends StatelessWidget {
     );
   }
 }
+
+

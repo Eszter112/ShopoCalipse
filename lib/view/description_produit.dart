@@ -15,7 +15,8 @@ class Description extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarW(),
       body: Center(
-        child: Column(
+        child: 
+        Column(
           children: [
             const SizedBox(height: 10),
             Text(
@@ -100,6 +101,8 @@ class Description extends StatelessWidget {
             const SizedBox(height: 100),
           ],
         ),
+
+
       ),
 
       bottomNavigationBar: const BottomNavbar(),
