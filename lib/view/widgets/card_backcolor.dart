@@ -5,6 +5,7 @@ import '../description_produit.dart';
 
 class CardWithBackColor extends StatelessWidget {
   final String title;
+
   final int? productId;
 
   const CardWithBackColor({super.key, required this.title, this.productId});

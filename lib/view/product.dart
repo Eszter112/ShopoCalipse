@@ -25,9 +25,6 @@ class _ProductsViewState extends State<ProductsView> {
     // listen: false=> veut dire : on ne veut pas ecouter les changements ici,
     // on veut juste lancer la fonction loadProducts().
     //
-    Future.microtask(() {
-      Provider.of<ProductProvider>(context, listen: false).loadProducts();
-    });
   }
 
   @override

@@ -10,6 +10,10 @@ import 'description_produit.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'navbar.dart';
+import 'widgets/dos.dart';
+import 'widgets/card_backcolor.dart';
+import 'widgets/card_with_products.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -31,48 +35,8 @@ class _GrandeListState extends State<GrandeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        // title: const Text("SHOPOCALIPSE"),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                const Color.fromARGB(255, 216, 176, 115),
-                const Color.fromARGB(255, 68, 41, 5),
-              ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-            ),
-          ),
-        ),
-
-        title: Text(
-          'SHOPOCALYPSE',
-          style: GoogleFonts.playfairDisplay(
-            fontSize: 30,
-            fontWeight: FontWeight.w400,
-            color: const Color.fromARGB(255, 239, 212, 175),
-            shadows: [
-              Shadow(
-                offset: Offset(2, 2),
-                blurRadius: 6.0,
-                color: Colors.black.withValues(alpha: 0.8),
-              ),
-              Shadow(
-                offset: Offset(0, 0),
-                blurRadius: 12.0,
-                color: Colors.amber.shade200.withValues(alpha: 0.2),
-              ),
-            ],
-          ),
-        ),
-        iconTheme: IconThemeData(color: Colors.amber.shade300),
-        // bottom: const PreferredSize(
-        //   preferredSize: Size.fromHeight(64),
-        //   child:  SearchBarApp(),
-        // ),
-      ),
+      // backgroundColor: const Color.fromARGB(255, 135, 83, 16),
+      appBar: const AppBarW(),
 
       body: SingleChildScrollView(
         child: Column(
@@ -160,20 +124,18 @@ class _GrandeListState extends State<GrandeList> {
             Consumer<ProductProvider>(
               builder: (context, provider, _) {
                 if (provider.isLoading) {
-                  return const SizedBox(
-                    height: 120,
-                    child: Center(child: CircularProgressIndicator()),
-                  );
+                  return
+                  // height: 10,
+                  const Center(child: CircularProgressIndicator());
                 }
                 if (provider.products.isEmpty) {
-                  return const SizedBox(
-                    height: 120,
-                    child: Center(child: Text("Aucun produit disponible")),
-                  );
+                  return
+                  // height: 10,
+                  const Center(child: CircularProgressIndicator());
                 }
 
                 return SizedBox(
-                  height: 220,
+                  height: 120,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -233,7 +195,7 @@ class _GrandeListState extends State<GrandeList> {
                 );
               },
             ),
-
+            // Text("kmlkmlkmlkmkmkm"),
             // const SizedBox(height: 4),
             SizedBox(
               height: 450,
@@ -245,14 +207,15 @@ class _GrandeListState extends State<GrandeList> {
                   const SizedBox(width: 12),
                   cuatroImagesFragances("Fragrances"),
                   const SizedBox(width: 12),
-                  cuatroImagesGroceries("Groceries>"),
+                  cuatroImagesGroceries("Groceries"),
                   const SizedBox(width: 12),
-                  cuatroImagesBeauty("Beauty>"),
+                  cuatroImagesBeauty("Beauty"),
                   const SizedBox(width: 12),
                 ],
               ),
             ),
-            SizedBox(height: 100),
+            Container(child: dos("")),
+            SizedBox(height: 50),
           ],
         ),
       ),
