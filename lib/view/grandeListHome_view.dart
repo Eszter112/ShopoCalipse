@@ -7,10 +7,8 @@ import 'description_produit.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'navbar.dart';
-import 'widgets/dos.dart';
-import 'widgets/card_backcolor.dart';
-import 'widgets/card_with_products.dart';
+import 'package:shopocalipse/view/widgets/row_mini-cards.dart';
+import 'package:shopocalipse/view/widgets/cuatro_widget.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});
@@ -32,8 +30,48 @@ class _GrandeListState extends State<GrandeList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 135, 83, 16),
-      appBar: const AppBarW(),
+      appBar: AppBar(
+        centerTitle: true,
+        // title: const Text("SHOPOCALIPSE"),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                const Color.fromARGB(255, 216, 176, 115),
+                const Color.fromARGB(255, 68, 41, 5),
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+            ),
+          ),
+        ),
+
+        title: Text(
+          'SHOPOCALYPSE',
+          style: GoogleFonts.playfairDisplay(
+            fontSize: 30,
+            fontWeight: FontWeight.w400,
+            color: const Color.fromARGB(255, 239, 212, 175),
+            shadows: [
+              Shadow(
+                offset: Offset(2, 2),
+                blurRadius: 6.0,
+                color: Colors.black.withValues(alpha: 0.8),
+              ),
+              Shadow(
+                offset: Offset(0, 0),
+                blurRadius: 12.0,
+                color: Colors.amber.shade200.withValues(alpha: 0.2),
+              ),
+            ],
+          ),
+        ),
+        iconTheme: IconThemeData(color: Colors.amber.shade300),
+        // bottom: const PreferredSize(
+        //   preferredSize: Size.fromHeight(64),
+        //   child:  SearchBarApp(),
+        // ),
+      ),
 
       body: SingleChildScrollView(
         child: Column(
@@ -48,7 +86,7 @@ class _GrandeListState extends State<GrandeList> {
 
                 children: [
                   const SizedBox(width: 12),
-                  CardWithProduct(title: "Ventes Flash stars", productId: 22,),
+                  CardWithProduct(title: "Ventes Flash stars", productId: 22),
                   const SizedBox(width: 12),
                   buildCardOffres("Offres sur les Beauty Shopocalipse"),
                   const SizedBox(width: 12),
@@ -68,7 +106,7 @@ class _GrandeListState extends State<GrandeList> {
               ),
             ),
 
-Container(child:rowMiniCards("")),
+            Container(child: rowMiniCards("")),
 
             const SizedBox(height: 20),
 
@@ -89,14 +127,16 @@ Container(child:rowMiniCards("")),
             Consumer<ProductProvider>(
               builder: (context, provider, _) {
                 if (provider.isLoading) {
-                  return
-                  // height: 10,
-                  const Center(child: CircularProgressIndicator());
+                  return const SizedBox(
+                    height: 8,
+                    child: Center(child: CircularProgressIndicator()),
+                  );
                 }
                 if (provider.products.isEmpty) {
-                  return
-                  // height: 10,
-                  const Center(child: CircularProgressIndicator());
+                  return const SizedBox(
+                    height: 8,
+                    child: Center(child: Text("Aucun produit disponible")),
+                  );
                 }
 
                 return SizedBox(
@@ -133,7 +173,6 @@ Container(child:rowMiniCards("")),
                                   colors: [
                                     const Color.fromARGB(255, 216, 176, 115),
                                     const Color.fromARGB(255, 68, 41, 5),
-                                    
                                   ],
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -164,244 +203,20 @@ Container(child:rowMiniCards("")),
                 );
               },
             ),
-            // Text("kmlkmlkmlkmkmkm"),
+
             // const SizedBox(height: 4),
+            Container(child: cuatroWidget("")),
 
-          Container(child: cuatroWidget("")),
-          
+            Container(child: rowMiniCards("")),
 
-                children: [
-                  const SizedBox(width: 12),
-                  cuatroImagesFragances("Fragrances"),
-                  const SizedBox(width: 12),
-                  cuatroImagesGroceries("Groceries"),
-                  const SizedBox(width: 12),
-                  cuatroImagesBeauty("Beauty"),
-                  const SizedBox(width: 12),
-                ],
-              ),
-            ),
-            Container(child: dos("")),
-            SizedBox(height: 50),
+            SizedBox(height: 20),
+
+            Container(child: cuatroWidget("")),
           ],
-          
         ),
-        
       ),
 
       bottomNavigationBar: const BottomNavbar(),
-      
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-
-// class GrandeList extends StatelessWidget {
-//   const GrandeList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text("SHOPOCALIPSE"),
-//         backgroundColor: Colors.deepOrangeAccent,
-//         actions: [
-// Center(
-//               child: ElevatedButton(
-//                         onPressed: (){Navigator.pushNamed(context, '/product.dart' );
-//                         }, 
-//                         child: Text("products"),
-//                       ),
-//                 ),
-// ],
-//       ),
-
-//       body: Container(
-//         height: 500,
-
-//         child: ListView(
-//           scrollDirection: Axis.horizontal,
-
-//           children: [
-//             buildCard("Ventes Flash stars"),
-//             const SizedBox(width: 12),
-//             buildCardChildren("Offres sur les appaeils Amazon"),
-//             const SizedBox(width: 12),
-//             buildCard("-35% et plus"),
-//             const SizedBox(width: 12),
-//             buildCard("Jouets"),
-//             const SizedBox(width: 12),
-//             buildCard("Les nouveautés"),
-//             const SizedBox(width: 12),
-//             buildCard("Les favoris !"),
-//             const SizedBox(width: 12),
-//             buildCardChildren("informatique"),
-//             const SizedBox(width: 12),
-//             buildCard("A vos marques, prets, économisez."),
-//             const SizedBox(width: 12),
-//             buildCard(" Favoris à moins de 50£"),
-//             const SizedBox(width: 12),
-//             buildCardChildren("Produits du Quotidien"),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   Widget buildCardChildren(String title) => 
-  
-//   Container(
-//     width: 300,
-//     height: 500,
-//     padding: const EdgeInsets.all(8),
-//     decoration: BoxDecoration(
-//     color: Colors.red,
-//     borderRadius: BorderRadius.circular(10),
-//     ),
-//     child: Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-
-//         Text(
-//           title,
-//           style: TextStyle(
-//             fontSize: 25,
-//             color: Colors.white,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-//         const SizedBox(height: 40),
-
-//         Expanded(
-//           child: Row(
-//             children: [
-//               Expanded(
-//                 child: Column(
-//                   children: [
-//                     Expanded(
-//                       child: Container(
-//                         margin: const EdgeInsets.all(4),
-//                         decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(10),
-//                         ),
-//                       ),
-//                     ),
-
-//                     Expanded(
-//                       child: Container(
-//                         margin: const EdgeInsets.all(4),
-//                         decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(10),
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-
-//               Expanded(
-//                 child: Column(
-//                   children: [
-//                     Expanded(
-//                       child: Container(
-//                         margin: const EdgeInsets.all(4),
-//                         decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(10),
-//                         ),
-//                       ),
-//                     ),
-//                     Expanded(
-//                       child: Container(
-//                         margin: const EdgeInsets.all(4),
-//                         decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(10),
-//                         ),
-//                       ),
-//                     ),
-//                     Expanded(
-//                       child: Container(
-//                         margin: const EdgeInsets.all(4),
-//                         decoration: BoxDecoration(
-//                         color: Colors.white,
-//                         borderRadius: BorderRadius.circular(10),
-//                         ),
-//                       ),
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ],
-//     ),
-//   );
-
-// Widget buildCard(String title) => Container(
-//     width: 300,
-//     height: 500,
-//     padding: const EdgeInsets.all(8),
-
-//     decoration: BoxDecoration(
-//     color: Colors.red,
-//     borderRadius: BorderRadius.circular(10),
-//     ),
-    
-//     child: Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         Text(
-//           title,
-//           style: TextStyle(
-//             fontSize: 25,
-//             color: Colors.white,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-//         const SizedBox(height: 40),
-// ],
-//     ),
-//     );
-
-
-
-// }
