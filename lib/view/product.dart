@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
-// import '../models/product.dart';
 import '../viewmodels/product_provider.dart';
 import 'description_produit.dart';
 

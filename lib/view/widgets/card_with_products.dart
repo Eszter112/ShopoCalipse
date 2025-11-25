@@ -6,6 +6,7 @@ import '../description_produit.dart';
 class CardWithProduct extends StatelessWidget {
   final String title;
   final int? productId;
+  
 
   const CardWithProduct({super.key, required this.title, this.productId});
 
@@ -19,11 +20,29 @@ class CardWithProduct extends StatelessWidget {
       width: 300,
       height: 500,
       padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            const Color.fromARGB(255, 216, 176, 115),
+            const Color.fromARGB(255, 68, 41, 5),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold)),
+          // Text(price),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 12),
           Expanded(
             child: thumb == null
@@ -31,20 +50,21 @@ class CardWithProduct extends StatelessWidget {
                 : InkWell(
                     onTap: () {
                       if (product != null) {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => Description(product: product)));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => Description(product: product),
+                          ),
+                        );
                       }
                     },
-                    child: ClipRRect( // coins arrondis a une image et masque tout ce qui dépasse
+                    child: ClipRRect(
+                      // coins arrondis a une image et masque tout ce qui dépasse
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.network(
-                        thumb,
-                        fit: BoxFit.cover,
-                    
-                      ),
+                      child: Image.network(thumb, fit: BoxFit.cover),
                     ),
                   ),
-                ),
-        
+          ),
         ],
       ),
     );

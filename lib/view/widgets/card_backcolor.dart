@@ -18,19 +18,30 @@ class CardWithBackColor extends StatelessWidget {
     return Container(
       width: 300,
       height: 500,
-      
+      margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(8),
-      decoration: 
-      BoxDecoration(
-        color: const Color.fromARGB(255, 255, 255, 255), 
-        borderRadius:  BorderRadius.circular(16),),
-
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            const Color.fromARGB(255, 216, 176, 115),
+            const Color.fromARGB(255, 68, 41, 5),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: Column(
-
-
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: const TextStyle(fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold)),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 12),
           Expanded(
             child: thumb == null
@@ -38,25 +49,25 @@ class CardWithBackColor extends StatelessWidget {
                 : InkWell(
                     onTap: () {
                       if (product != null) {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => Description(product: product)));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => Description(product: product),
+                          ),
+                        );
                       }
                     },
-                    child: ClipRRect( // coins arrondis a une image et masque tout ce qui dépasse
-                      
+                    child: ClipRRect(
+                      // coins arrondis a une image et masque tout ce qui dépasse
                       borderRadius: BorderRadius.circular(8),
                       child: Center(
-                      child: Image.network(
-                        thumb,
-                        fit: BoxFit.cover,
-                    
+                        child: Image.network(thumb, fit: BoxFit.cover),
                       ),
                     ),
                   ),
-                ),
-        ),
+          ),
         ],
       ),
     );
   }
 }
-
