@@ -3,11 +3,11 @@ import 'package:provider/provider.dart';
 import '../../viewmodels/product_provider.dart';
 import '../description_produit.dart';
 
-class CardWithProduct extends StatelessWidget {
+class CardWithBackColor extends StatelessWidget {
   final String title;
   final int? productId;
 
-  const CardWithProduct({super.key, required this.title, this.productId});
+  const CardWithBackColor({super.key, required this.title, this.productId});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,10 @@ class CardWithProduct extends StatelessWidget {
       width: 300,
       height: 500,
       padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(10)),
+      decoration: 
+      BoxDecoration(
+        color: const Color.fromARGB(255, 255, 255, 255), 
+        borderRadius:  BorderRadius.circular(16),),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -50,5 +53,4 @@ class CardWithProduct extends StatelessWidget {
     );
   }
 }
-
 

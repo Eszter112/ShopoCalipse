@@ -13,32 +13,44 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<CartCVM>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Panier"),
         backgroundColor: Colors.deepOrangeAccent,
       ),
-      body: ListView.builder(
-        itemCount: cart.items.length,
-        itemBuilder: (context, index) {
-          final product = cart.items[index];
-          return
-          // ListTile(
-          //   title: Text(product.title),
-          //   subtitle: Text("${product.price} €"),
-          //   trailing: IconButton(
-          //     icon: const Icon(Icons.add),
-          //     onPressed: () => cart.add(product),
-          //   ),
-          // ),
-          ListTile(
-            title: Text(product.title),
-            subtitle: Text("${product.price} €"),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: () => cart.remove(product),
-            ),
+      body: Consumer<CartCVM>(
+        builder: (context, cart, child) {
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemCount: cart.items.length,
+                  itemBuilder: (context, index) {
+                    final item = cart.items[index];
+                    return ListTile(
+                      title: Text(item.title),
+                      subtitle: Text("${item.price} €"),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () => cart.remove(item),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              // btn vider panier
+              ElevatedButton(
+                onPressed: () => cart.clear(),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 247, 200, 143),
+                ),
+                child: const Text(
+                  "Vider le panier",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              SizedBox(height: 100),
+            ],
           );
         },
       ),

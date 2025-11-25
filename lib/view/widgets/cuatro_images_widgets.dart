@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/card_with_products.dart';
+import 'package:shopocalipse/view/widgets/card_backcolor.dart';
 
 
 Widget cuatroImagesFragances(String title) => Container(

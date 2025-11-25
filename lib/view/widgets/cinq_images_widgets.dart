@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shopocalipse/view/widgets/card_with_products.dart';
+import 'package:shopocalipse/view/widgets/card_backcolor.dart';
 
 Widget buildCardOffres(String title) => Container(
   width: 300,
   height: 500,
-  padding: const EdgeInsets.all(8),
+  padding: const EdgeInsets.all(10),
   decoration: BoxDecoration(
     color: Colors.red,
     borderRadius: BorderRadius.circular(10),
@@ -29,7 +30,8 @@ Widget buildCardOffres(String title) => Container(
 
                   Expanded(
                     child:
-                    CardWithProduct(title:"", productId:1),
+                    
+                    CardWithBackColor(title:"", productId:1),
                   // Container(
                   //   margin:
                   // const EdgeInsets.all(4), 
@@ -43,7 +45,7 @@ Widget buildCardOffres(String title) => Container(
 
                   Expanded(
                     child:
-                    CardWithProduct(title:"", productId: 2),
+                    CardWithBackColor(title:"", productId: 2),
                   // Container(
                   //   margin:
                   // const EdgeInsets.all(4), 
@@ -63,7 +65,7 @@ Widget buildCardOffres(String title) => Container(
                 children: [
                   Expanded(
                     child:
-                    CardWithProduct(title:"", productId: 3),
+                    CardWithBackColor(title:"", productId: 3),
                   // Container(
                   //   margin:
                   // const EdgeInsets.all(4), 
@@ -77,7 +79,7 @@ Widget buildCardOffres(String title) => Container(
 
                   Expanded(
                     child:
-                    CardWithProduct(title:"", productId: 4),
+                    CardWithBackColor(title:"", productId: 4),
                   // Container(
                   //   margin:
                   // const EdgeInsets.all(4), 
@@ -91,7 +93,7 @@ Widget buildCardOffres(String title) => Container(
 
                   Expanded(
                     child:
-                    CardWithProduct(title:"", productId: 5),
+                    CardWithBackColor(title:"", productId: 5),
                   // Container(
                   //   margin:
                   // const EdgeInsets.all(4), 

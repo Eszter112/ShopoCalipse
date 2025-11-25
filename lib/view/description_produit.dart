@@ -12,7 +12,7 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<CartCVM>(context);
+    final cart = Provider.of<CartCVM>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("SHOPOCALYPSE"),
@@ -72,27 +72,25 @@ class Description extends StatelessWidget {
                   '${product.price} €',
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 ),
-
-                Text(
-                  '${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(2)} €',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.grey,
-                    decoration: TextDecoration.lineThrough,
-                  ),
-                ),
               ],
             ),
+            Text(
+              '${(product.price / (1 - product.discountPercentage / 100)).toStringAsFixed(2)} €',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.grey,
+                decoration: TextDecoration.lineThrough,
+              ),
+            ),
             SizedBox(height: 50),
-            // Text("Ajouter au panier"),
+
             ElevatedButton(
               onPressed: () {
-                // context.read<CartCVM>().add(product);
-                Provider.of<CartCVM>(context).addProduct(product);
+                cart.addProduct(product);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      "Vous avez ajoutez au panier ${product.title} ",
+                      "Vous avez ajouté au panier ${product.title} ",
                     ),
                   ),
                 );
@@ -100,22 +98,26 @@ class Description extends StatelessWidget {
               child: const Text('Ajouter au panier'),
             ),
             const SizedBox(height: 100),
-            Expanded(
-              child: ListView.builder(
-                itemCount: cart.items.length,
-                itemBuilder: (context, index) {
-                  final item = cart.items[index];
-                  return ListTile(
-                    title: Text(item.title),
-                    subtitle: Text("${item.price} €"),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () => cart.remove(item),
-                    ),
-                  );
-                },
-              ),
-            ),
+            // Expanded(
+            //   child: Consumer<CartCVM>(
+            //     builder: (context, cart, child) {
+            //       return ListView.builder(
+            //         itemCount: cart.items.length,
+            //         itemBuilder: (context, index) {
+            //           final item = context.watch<CartCVM>().items[index];
+            //           return ListTile(
+            //             title: Text(item.title),
+            //             subtitle: Text("${item.price} €"),
+            //             trailing: IconButton(
+            //               icon: const Icon(Icons.delete),
+            //               onPressed: () => context.read<CartCVM>().remove(item),
+            //             ),
+            //           );
+            //         },
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),

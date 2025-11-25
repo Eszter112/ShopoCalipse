@@ -3,12 +3,13 @@ import 'package:provider/provider.dart';
 import 'package:shopocalipse/view/bottom_navbar.dart';
 import 'package:shopocalipse/view/widgets/card_with_products.dart';
 import '../viewmodels/product_provider.dart';
-import 'widgets/product_promo_card.dart';
+// import 'widgets/product_promo_card.dart';
 // import 'package:shopocalipse/view/product.dart';
 import 'description_produit.dart';
 // import 'widgets/searchBar.dart';
 import 'package:shopocalipse/view/widgets/cuatro_images_widgets.dart';
 import 'package:shopocalipse/view/widgets/cinq_images_widgets.dart';
+import 'package:shopocalipse/view/widgets/card_backcolor.dart';
 
 class GrandeList extends StatefulWidget {
   const GrandeList({super.key});

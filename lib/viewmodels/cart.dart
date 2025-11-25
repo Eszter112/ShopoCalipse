@@ -18,4 +18,10 @@ class CartCVM with ChangeNotifier {
     items.clear();
     notifyListeners();
   }
+
+  double get totalPrice => items
+      .map((product) => product.price)
+      .fold(0, (sum, price) => sum + price);
+
+  int get itemCount => items.length;
 }
