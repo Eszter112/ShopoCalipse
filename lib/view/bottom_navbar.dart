@@ -7,28 +7,6 @@ import 'menu_page.dart';
 class BottomNavbar extends StatelessWidget {
   const BottomNavbar({super.key});
 
-  //   @override
-  //   State<BottomNavbar> createState() => _BottomNavbarState();
-  // }
-
-  // class _BottomNavbarState extends State<BottomNavbar> {
-  // int _selectedIndex = 0;
-
-  // int _currentIndex = 0;
-
-  // final List<Widget> pages = const [
-  //   GrandeList(), // Home
-  //   Profil(), // Profile
-  //   Cart(), // Panier
-  //   MenuPage(), // Menu
-  // ];
-
-  // void setCurrantIndex(int index) {
-  //   setState(() {
-  //     _currentIndex = index;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     // return Scaffold(
@@ -41,14 +19,36 @@ class BottomNavbar extends StatelessWidget {
       selectedItemColor: const Color.fromARGB(255, 2, 52, 53),
       unselectedItemColor: Colors.black,
       backgroundColor: Colors.deepOrangeAccent,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart),
-          label: '',
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/home'),
+            icon: Icon(Icons.home, color: Colors.black),
+          ),
+          label: "",
         ),
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: ''),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/profil'),
+            icon: Icon(Icons.person, color: Colors.black),
+            iconSize: 35,
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/cart'),
+            icon: Icon(Icons.shopping_cart, color: Colors.black),
+          ),
+          label: "",
+        ),
+        BottomNavigationBarItem(
+          icon: IconButton(
+            onPressed: () => Navigator.pushNamed(context, '/menu'),
+            icon: Icon(Icons.menu, color: Colors.black),
+          ),
+          label: "",
+        ),
       ],
       // ),
     );
