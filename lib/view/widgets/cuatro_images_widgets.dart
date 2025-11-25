@@ -29,7 +29,7 @@ Widget cuatroImagesFragances(String title) => Container(
           fontWeight: FontWeight.bold,
         ),
       ),
-      const SizedBox(height: 40),
+      const SizedBox(height: 30),
       Expanded(
         child: Row(
           children: [

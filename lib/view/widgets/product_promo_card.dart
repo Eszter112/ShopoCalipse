@@ -89,7 +89,7 @@ Widget buildCardChildren(String title) => Container(
                 ],
               ),
             ),
-
+            
             Expanded(
               child: Column(
                 children: [
